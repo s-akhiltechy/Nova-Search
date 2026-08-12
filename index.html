@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova Search</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- SEARCH AREA -->
+    <section class="hero">
+
+        <div class="container">
+
+            <h1 class="nova">Nova Search</h1>
+
+            <form action="https://www.google.com/search" method="get">
+
+                <div class="search-bar">
+
+                    <input
+                        class="in"
+                        type="text"
+                        name="q"
+                        placeholder="Search anything..."
+                    >
+
+                    <button type="submit" class="submit">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                            
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTENT AREA -->
+    <main class="content">
+
+        <!-- NEWS -->
+        <section id="news" class="content-section">
+
+            <h2>Today's News</h2>
+
+            <div class="content-box" id="news-container">
+
+                <p>Latest technology news will appear here.</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- APPS -->
+        <section id="apps" class="content-section">
+
+            <h2>Other Apps</h2>
+
+            <div class="content-box" id="apps-container">
+
+                <p>Useful apps will appear here.</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- MUSIC -->
+        <section id="music" class="content-section">
+
+            <h2>Top Music</h2>
+
+            <div class="content-box" id="music-container">
+
+                <p>Top music will appear here.</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
