@@ -29,7 +29,24 @@ async function loadNASAImage() {
 loadNASAImage();
 
 
-const NEWS_API_KEY = "9a2265f8b1c607153ebd947857a55200";
+// Hacker News is used instead of a paid news API because its API is free,
+// needs no API key, and works fine with client-side requests on GitHub Pages
+// (the old news API blocked/failed on GitHub Pages, likely due to CORS or
+// key/plan restrictions).
+const HN_TOP_STORIES_URL =
+    "https://hacker-news.firebaseio.com/v0/topstories.json";
+
+function getDomainFromUrl(url) {
+
+    try {
+
+        return new URL(url).hostname.replace("www.", "");
+
+    } catch (error) {
+
+        return "news.ycombinator.com";
+    }
+}
 
 async function loadNews() {
 
@@ -37,29 +54,38 @@ async function loadNews() {
 
     try {
 
-        const response = await fetch(
-            `https://gnews.io/api/v4/top-headlines?category=technology&lang=en&country=in&max=6&apikey=${NEWS_API_KEY}`
-        );
+        const idsResponse = await fetch(HN_TOP_STORIES_URL);
+        const storyIds = await idsResponse.json();
 
-        const data = await response.json();
+        const topIds = storyIds.slice(0, 6);
+
+        const stories = await Promise.all(
+            topIds.map(id =>
+                fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+                    .then(res => res.json())
+            )
+        );
 
         container.innerHTML = "";
 
-        data.articles.forEach(article => {
+        stories.forEach(story => {
+
+            const link = story.url ||
+                `https://news.ycombinator.com/item?id=${story.id}`;
 
             container.innerHTML += `
-                <a href="${article.url}"
+                <a href="${link}"
                    target="_blank"
                    class="news-card">
 
-                    <h3>${article.title}</h3>
+                    <h3>${story.title}</h3>
 
                     <p>
-                        ${article.description || ""}
+                        ${story.score} points by ${story.by}
                     </p>
 
                     <small>
-                        ${article.source.name}
+                        ${getDomainFromUrl(link)}
                     </small>
 
                 </a>
