@@ -9,9 +9,25 @@ I wanted to make a search website with some extra features instead of just havin
 - Search the web using the search bar
 - NASA's image of the day as the website background
 - Top music using the Last.fm API
-- Trending tech stories using the Hacker News API
+- Daily news using a News API
 - Hover animations
 - Dynamic content using JavaScript
+
+## How to Run Locally
+
+To run NOVA Search on your computer:
+
+1. Download or clone this repository.
+2. Open the project folder.
+3. Open `index.html` in your web browser.
+
+You can also use VS Code with the Live Server extension:
+
+1. Open the NOVA Search folder in VS Code.
+2. Install the Live Server extension if you don't already have it.
+3. Right-click `index.html`.
+4. Select **Open with Live Server**.
+5. NOVA Search will open in your browser.
 
 ## APIs Used
 
@@ -25,11 +41,9 @@ The website fetches NASA's image of the day and uses it as the background.
 
 I used the Last.fm API to fetch top music and display it on the website.
 
-### Hacker News API
+### News API
 
-I used the free Hacker News API (by Firebase) to fetch trending tech stories and display them on the homepage.
-
-I originally used a paid News API (GNews) for this, but it stopped working when the site was hosted on GitHub Pages (it failed with CORS/key restrictions on the live site even though it worked locally). I switched to the Hacker News API because it's free, doesn't need an API key, and works reliably with client-side requests on GitHub Pages.
+I used a News API to fetch daily news and display it on the homepage.
 
 ## AI Used
 
@@ -46,7 +60,7 @@ I then added and changed the code to fit the design and features I wanted for NO
 - JavaScript
 - NASA API
 - Last.fm API
-- Hacker News API
+- News API
 - Font Awesome
 
 ## Responsiveness
